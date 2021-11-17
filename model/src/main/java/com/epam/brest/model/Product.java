@@ -61,4 +61,16 @@ public class Product {
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", name='" + name + '\'' +
+                ", value='" + value + '\'' +
+                ", quantity=" + quantity +
+                ", pricePerItem=" + pricePerItem +
+                ", orderId=" + orderId +
+                '}';
+    }
 }

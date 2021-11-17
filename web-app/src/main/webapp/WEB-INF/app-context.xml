@@ -18,6 +18,20 @@
     <!-- Component scan for @Controller, @Service annotations -->
     <context:component-scan base-package="com.epam.brest*"/>
 
+    <import resource="classpath*:test-db.xml"/>
+
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="orderDtoDao" class="com.epam.brest.dao.OrderDtoDaoJdbc">
+        <constructor-arg ref="namedParameterJdbcTemplate"/>
+    </bean>
+
+    <bean id="orderDtoService" class="com.epam.brest.service.impl.OrderDtoServiceImpl">
+        <constructor-arg name="orderDtoDao" ref="orderDtoDao"/>
+    </bean>
+
     <!-- Thymeleaf Template Resolver (version Spring5)-->
     <bean id="templateResolver"
           class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">

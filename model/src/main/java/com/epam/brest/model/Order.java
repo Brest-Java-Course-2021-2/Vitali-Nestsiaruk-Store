@@ -8,9 +8,21 @@ public class Order {
 
     private String shipper;
 
-    private Double totalPrice;
-
     private Date date;
+
+    public Order() {
+    }
+
+    public Order(String shipper, Date date) {
+        this.shipper = shipper;
+        this.date = date;
+    }
+
+    public Order(Integer orderId, String shipper, Date date) {
+        this.orderId = orderId;
+        this.shipper = shipper;
+        this.date = date;
+    }
 
     public Integer getOrderId() {
         return orderId;
@@ -28,19 +40,20 @@ public class Order {
         this.shipper = shipper;
     }
 
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", shipper='" + shipper + '\'' +
+                ", date=" + date +
+                '}';
     }
 }
