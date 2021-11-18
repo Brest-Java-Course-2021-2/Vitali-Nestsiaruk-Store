@@ -13,4 +13,6 @@ public interface OrderDao {
     Integer update(Order order);
 
     Integer delete(Integer orderId);
+
+    Integer count();
 }

@@ -9,11 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.function.BooleanSupplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,12 +39,20 @@ class OrderDaoJDBCImplIT {
     @Test
     void create() {
         assertNotNull(orderDaoJDBC);
-        int orderSizeBefore = orderDaoJDBC.findAll().size();
+        int orderSizeBefore = orderDaoJDBC.count();
         Order order = new Order("Santa Fish", new Date(2021-10-11));
         Integer newOrderId = orderDaoJDBC.create(order);
         System.out.println("newOrderId " + newOrderId);
-
         assertNotNull(newOrderId);
-        assertEquals((int) orderSizeBefore, orderDaoJDBC.findAll().size() - 1);
+        assertEquals((int) orderSizeBefore, orderDaoJDBC.count() - 1);
+    }
+
+    @Test
+    void shouldCount() {
+        assertNotNull(orderDaoJDBC);
+        Integer quantity = orderDaoJDBC.count();
+        assertNotNull(quantity);
+        assertTrue(quantity > 0);
+        assertEquals(Integer.valueOf(2), quantity);
     }
 }

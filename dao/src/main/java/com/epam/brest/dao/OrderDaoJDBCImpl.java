@@ -26,8 +26,13 @@ public class OrderDaoJDBCImpl implements OrderDao{
     private final String SQL_ALL_ORDERS = "SELECT op.order_id, op.shipper, op.date FROM order_product op ORDER BY shipper";
     private final String SQL_CREATE_ORDERS = "INSERT INTO order_product(shipper, date) VALUES(:shipper, :date)";
 
+    @Deprecated
     public OrderDaoJDBCImpl(DataSource dataSource) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+    }
+
+    public OrderDaoJDBCImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
     @Override
@@ -55,6 +60,13 @@ public class OrderDaoJDBCImpl implements OrderDao{
     @Override
     public Integer delete(Integer orderId) {
         return null;
+    }
+
+    @Override
+    public Integer count() {
+        logger.debug("count()");
+        return namedParameterJdbcTemplate
+                .queryForObject("SELECT count(*) FROM order_product", new MapSqlParameterSource(), Integer.class);
     }
 
     private class OrderRowMapper implements RowMapper<Order> {

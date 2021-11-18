@@ -16,4 +16,12 @@
         <constructor-arg name="orderDtoDao" ref="orderDtoDao"/>
     </bean>
 
+    <bean id="orderDao" class="com.epam.brest.dao.OrderDaoJDBCImpl">
+        <constructor-arg ref="namedParameterJdbcTemplate"/>
+    </bean>
+
+    <bean id="orderService" class="com.epam.brest.service.impl.OrderServiceImpl">
+        <constructor-arg name="orderDao" ref="orderDao"/>
+    </bean>
+
 </beans>
