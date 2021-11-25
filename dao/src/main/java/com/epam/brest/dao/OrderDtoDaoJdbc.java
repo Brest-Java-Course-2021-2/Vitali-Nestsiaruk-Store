@@ -1,6 +1,7 @@
 package com.epam.brest.dao;
 
 import com.epam.brest.model.dto.OrderDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -14,8 +15,8 @@ import java.util.List;
 public class OrderDtoDaoJdbc implements OrderDtoDao{
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-    private final String findAllWithTotalPriceSql = "SELECT\n" +
+    // With Date
+    /*private final String findAllWithTotalPriceSql = "SELECT\n" +
             "\top.order_id AS orderId,\n" +
             "\top.shipper,\n" +
             "\tsum(p.amount * p.price) AS totalPrice,\n" +
@@ -28,7 +29,10 @@ public class OrderDtoDaoJdbc implements OrderDtoDao{
             "\top.order_id,\n" +
             "\top.shipper\n" +
             "ORDER BY\n" +
-            "\top.order_id";
+            "\top.order_id";*/
+
+     @Value("${findAllWithTotalPriceSql}")
+    private String findAllWithTotalPriceSql;
 
     public OrderDtoDaoJdbc(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;

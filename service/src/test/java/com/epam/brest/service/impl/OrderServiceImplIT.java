@@ -23,7 +23,6 @@ class OrderServiceImplIT {
     @Autowired
     OrderService orderService;
 
-
     @BeforeEach
     void setUp() {
     }
@@ -34,7 +33,7 @@ class OrderServiceImplIT {
         Integer quantity = orderService.count();
         assertNotNull(quantity);
         assertTrue(quantity > 0);
-        assertEquals(Integer.valueOf(2), quantity);
+        assertEquals(Integer.valueOf(3), quantity);
     }
 
     @Test
@@ -42,9 +41,8 @@ class OrderServiceImplIT {
         assertNotNull(orderService);
         Integer orderSizeBefore = orderService.count();
         assertNotNull(orderSizeBefore);
-        Order order = new Order("Santa Blue", new Date(2021-10-13));
+        Order order = new Order("Santa Blue");
         Integer newOrderId = orderService.create(order);
-        System.out.println("newOrderId " + newOrderId);
         assertNotNull(newOrderId);
         assertEquals(orderSizeBefore, orderService.count() - 1);
     }

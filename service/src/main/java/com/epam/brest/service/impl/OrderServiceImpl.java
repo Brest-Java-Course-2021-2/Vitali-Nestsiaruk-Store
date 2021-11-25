@@ -19,12 +19,29 @@ public class OrderServiceImpl implements OrderService {
         this.orderDao = orderDao;
     }
 
+    @Override
+    public Order getOrderById(Integer orderId) {
+        logger.debug("Get order by id = {}", orderId);
+        return this.orderDao.getOrderById(orderId);
+    }
 
     @Override
     @Transactional
     public Integer create(Order order) {
         logger.debug("create({})", order);
         return this.orderDao.create(order);
+    }
+
+    @Override
+    public Integer update(Order order) {
+        logger.debug("update({})", order);
+        return this.orderDao.update(order);
+    }
+
+    @Override
+    public Integer delete(Integer orderId) {
+        logger.debug("delete order with id = {}", orderId);
+        return this.orderDao.delete(orderId);
     }
 
     @Override

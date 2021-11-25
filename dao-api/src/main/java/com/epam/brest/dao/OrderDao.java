@@ -8,6 +8,8 @@ public interface OrderDao {
 
     List<Order> findAll();
 
+    Order getOrderById(Integer orderId);
+
     Integer create(Order order);
 
     Integer update(Order order);

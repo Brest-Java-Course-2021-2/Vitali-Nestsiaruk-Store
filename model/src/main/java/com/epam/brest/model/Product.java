@@ -8,7 +8,7 @@ public class Product {
 
     private String value;
 
-    private Integer quantity;
+    private Integer amount;
 
     private Double pricePerItem;
 
@@ -38,12 +38,12 @@ public class Product {
         this.value = value;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public Double getPricePerItem() {
@@ -68,7 +68,7 @@ public class Product {
                 "productId=" + productId +
                 ", name='" + name + '\'' +
                 ", value='" + value + '\'' +
-                ", quantity=" + quantity +
+                ", quantity=" + amount +
                 ", pricePerItem=" + pricePerItem +
                 ", orderId=" + orderId +
                 '}';

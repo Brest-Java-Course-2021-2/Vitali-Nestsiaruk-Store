@@ -11,9 +11,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath*:test-db.xml", "classpath*:test-jdbc-conf.xml"})
@@ -23,7 +28,7 @@ class OrderDaoJDBCImplIT {
 
     private final Logger logger = LogManager.getLogger(OrderDaoJDBCImplIT.class);
 
-    OrderDaoJDBCImpl orderDaoJDBC;
+    private OrderDaoJDBCImpl orderDaoJDBC;
 
     public OrderDaoJDBCImplIT(@Autowired OrderDao orderDaoJDBC) {
         this.orderDaoJDBC = (OrderDaoJDBCImpl) orderDaoJDBC;
@@ -39,12 +44,49 @@ class OrderDaoJDBCImplIT {
     @Test
     void create() {
         assertNotNull(orderDaoJDBC);
-        int orderSizeBefore = orderDaoJDBC.count();
-        Order order = new Order("Santa Fish", new Date(2021-10-11));
+        int ordersSizeBefore = orderDaoJDBC.count();
+        Order order = new Order("Santa Fish");
         Integer newOrderId = orderDaoJDBC.create(order);
-        System.out.println("newOrderId " + newOrderId);
         assertNotNull(newOrderId);
-        assertEquals((int) orderSizeBefore, orderDaoJDBC.count() - 1);
+        assertEquals((int) ordersSizeBefore, orderDaoJDBC.count() - 1);
+    }
+
+    @Test
+    void getOrderById() {
+        List<Order> orders = orderDaoJDBC.findAll();
+        if (orders.size() == 0) {
+            orderDaoJDBC.create(new Order("TEST ORDER"));
+            orders = orderDaoJDBC.findAll();
+        }
+
+        Order orderSrc = orders.get(0);
+        Order orderDst = orderDaoJDBC.getOrderById(orderSrc.getOrderId());
+        assertEquals(orderSrc.getShipper(), orderDst.getShipper());
+    }
+
+    @Test
+    void updateOrder() {
+        List<Order> orders = orderDaoJDBC.findAll();
+        if (orders.size() == 0) {
+            orderDaoJDBC.create(new Order("TEST ORDER"));
+            orders = orderDaoJDBC.findAll();
+        }
+
+        Order orderSrc = orders.get(0);
+        orderSrc.setShipper(orderSrc.getShipper() + "_TEST");
+        orderDaoJDBC.update(orderSrc);
+
+        Order orderDst = orderDaoJDBC.getOrderById(orderSrc.getOrderId());
+        assertEquals(orderSrc.getShipper(), orderDst.getShipper());
+    }
+
+    @Test
+    void deleteOrder() {
+        orderDaoJDBC.create(new Order("TEST ORDER"));
+        List<Order> orders = orderDaoJDBC.findAll();
+
+        orderDaoJDBC.delete(orders.get(orders.size() - 1).getOrderId());
+        assertEquals(orders.size() - 1, orderDaoJDBC.findAll().size());
     }
 
     @Test
@@ -53,6 +95,6 @@ class OrderDaoJDBCImplIT {
         Integer quantity = orderDaoJDBC.count();
         assertNotNull(quantity);
         assertTrue(quantity > 0);
-        assertEquals(Integer.valueOf(2), quantity);
+        assertEquals(Integer.valueOf(3), quantity);
     }
 }

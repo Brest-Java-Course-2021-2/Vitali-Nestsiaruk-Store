@@ -44,7 +44,8 @@
                     <i class="bi-arrow-left"></i></a>
             </li>
         </ul>
-        <span class="navbar-brand text-uppercase me-auto">&nbsp;&nbsp;Edit order</span>
+        <span class="navbar-brand text-uppercase me-auto"
+              th:text="${isNew} ? 'New department' : 'Edit department'">Edit order</span>
     </nav> 
 </header>
 
@@ -54,33 +55,37 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label"
-                                       for="field_orderNumber">Order №</label>
-                                <input class="form-control "
-                                       id="field_orderNumber"
-                                       type="text" value="012021"/>
-                            </div>
+                        <form id="orderForm"
+                              th:object="${order}"
+                              action="orders.html"
+                              th:action="@{${#httpServletRequest.servletPath}}"
+                              th:method="@{post}">
+
+                            <input id="field_orderId"
+                                   type="hidden"
+                                   th:field="*{orderId}"/>
+
                             <div class="mb-3">
                                 <label class="form-label"
                                        for="field_shipper">Shipper</label>
                                 <input class="form-control"
                                        id="field_shipper"
-                                       type="text" value="Shipper">
-                            </div>
-							<div class="mb-3">
-                                <label class="form-label"
-                                       for="field_date">Date</label>
-                                <input class="form-control"
-                                       id="field_date"
-                                       type="text" value="mm/dd/yyyy">
-                            </div>
+                                       type="text" value="Shipper"
+                                       th:field="*{shipper}">
+<!--                            </div>-->
+<!--							<div class="mb-3">-->
+<!--                                <label class="form-label"-->
+<!--                                       for="field_date">Date</label>-->
+<!--                                <input class="form-control"-->
+<!--                                       id="field_date"-->
+<!--                                       type="text" value="mm/dd/yyyy">-->
+<!--                            </div>-->
                             <div class="d-flex justify-content-end">
                                 <a href="orders.html" th:href="@{/orders}"
                                    class="btn btn-secondary me-1"
                                    title="Cancel">Cancel</a>
                                 <a href="orders.html" th:href="@{/orders}"
+                                   th:onclick="@{document.forms['orderForm'].submit(); return false;}"
                                    class="btn btn-primary"
                                    title="Save order">Save</a>
                             </div>
