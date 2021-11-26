@@ -61,6 +61,10 @@
                               th:action="@{${#httpServletRequest.servletPath}}"
                               th:method="@{post}">
 
+                            <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                                <p>Please fix errors below:</p>
+                            </div>
+
                             <input id="field_orderId"
                                    type="hidden"
                                    th:field="*{orderId}"/>
@@ -72,7 +76,10 @@
                                        id="field_shipper"
                                        type="text" value="Shipper"
                                        th:field="*{shipper}">
-<!--                            </div>-->
+                                <div th:if="${#fields.hasErrors('shipper')}"
+                                     class="text-danger"
+                                     th:errors="*{shipper}">[errors]</div>
+                            </div>
 <!--							<div class="mb-3">-->
 <!--                                <label class="form-label"-->
 <!--                                       for="field_date">Date</label>-->

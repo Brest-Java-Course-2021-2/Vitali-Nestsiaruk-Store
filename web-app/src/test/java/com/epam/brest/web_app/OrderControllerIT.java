@@ -107,6 +107,26 @@ public class OrderControllerIT {
     }
 
     @Test
+    void shouldFailAddDepartmentOnEmptyName() throws Exception {
+        // WHEN
+        Order order = new Order("");
+
+        // THEN
+        mockMvc.perform(
+                        MockMvcRequestBuilders.post("/order")
+                                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                                .param("shipper", order.getShipper())
+                ).andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("order"))
+                .andExpect(
+                        model().attributeHasFieldErrors(
+                                "order", "shipper"
+                        )
+                );
+    }
+
+    @Test
     public void shouldOpenEditOrderPageById() throws Exception {
         mockMvc.perform(
                         MockMvcRequestBuilders.get("/order/1")

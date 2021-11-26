@@ -4,10 +4,12 @@ import com.epam.brest.model.Order;
 import com.epam.brest.service.OrderDtoService;
 import com.epam.brest.service.OrderService;
 import com.epam.brest.service.impl.OrderServiceImpl;
+import com.epam.brest.web_app.validators.OrderValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,9 +24,13 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    public OrderController(OrderDtoService orderDtoService, OrderService orderService) {
+    private final OrderValidator orderValidator;
+
+    public OrderController(OrderDtoService orderDtoService, OrderService orderService,
+                           OrderValidator orderValidator) {
         this.orderDtoService = orderDtoService;
         this.orderService = orderService;
+        this.orderValidator = orderValidator;
     }
 
     /**
@@ -71,8 +77,15 @@ public class OrderController {
      * @return view name
      */
     @PostMapping(value = "/order")
-    public String addOrder(Order order) {
-        logger.debug("addOrder({},{})", order); // Внимание!!!
+    public String addOrder(Order order, BindingResult result) {
+        logger.debug("addOrder({},{})", order);
+
+        orderValidator.validate(order, result);
+
+        if (result.hasErrors()) {
+            return "order";
+        }
+
         this.orderService.create(order);
         return "redirect:/orders";
     }
@@ -84,9 +97,16 @@ public class OrderController {
      * @return view name
      */
     @PostMapping(value = "/order/{id}")
-    public String updateOrder(Order order) {
+    public String updateOrder(Order order, BindingResult result) {
 
         logger.debug("updateOrder({}, {})", order);
+
+        orderValidator.validate(order, result);
+
+        if (result.hasErrors()) {
+            return "order";
+        }
+
         this.orderService.update(order);
         return "redirect:/orders";
     }
