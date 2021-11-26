@@ -1,28 +1,36 @@
 package com.epam.brest.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Order {
+
 
     private Integer orderId;
 
     private String shipper;
 
-    private Date date;
+    //private LocalDate date;
 
     public Order() {
     }
 
-    public Order(String shipper, Date date) {
+    public Order(String shipper) {
         this.shipper = shipper;
-        this.date = date;
     }
 
-    public Order(Integer orderId, String shipper, Date date) {
-        this.orderId = orderId;
+    /*
+    public Order(String shipper, LocalDate date) {
         this.shipper = shipper;
         this.date = date;
     }
+    */
+
+    public Order(Integer orderId, String shipper) {
+        this.orderId = orderId;
+        this.shipper = shipper;
+
+    }
+
 
     public Integer getOrderId() {
         return orderId;
@@ -39,21 +47,23 @@ public class Order {
     public void setShipper(String shipper) {
         this.shipper = shipper;
     }
-
-    public Date getDate() {
+    /*
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
+    */
 
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
                 ", shipper='" + shipper + '\'' +
-                ", date=" + date +
+                //", date=" + date +
                 '}';
     }
+
 }

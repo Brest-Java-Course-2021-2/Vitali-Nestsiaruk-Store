@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS product;
 CREATE TABLE order_product(
     order_id INT NOT NULL AUTO_INCREMENT,
     shipper VARCHAR(255) NOT NULL,
-    date Date NOT NULL,
+--    date Date NOT NULL,
     CONSTRAINT order_product_pk PRIMARY KEY (order_id)
 );
 

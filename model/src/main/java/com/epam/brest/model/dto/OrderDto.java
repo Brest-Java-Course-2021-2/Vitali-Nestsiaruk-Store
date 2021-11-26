@@ -23,10 +23,10 @@ public class OrderDto {
      */
     private BigDecimal totalPrice;
 
-    /**
-     * Data of the Order.
-     */
-    private Date date;
+  //  /**
+  //   * Data of the Order.
+  //   */
+    //private Date date;
 
     /**
      * Constructor without arguments.
@@ -35,14 +35,23 @@ public class OrderDto {
     }
 
     /**
-     * Constructor with shipper name.
+     * Constructor with shipper name
+     *
+     * @param shipper
+     */
+    public OrderDto(String shipper) {
+        this.shipper = shipper;
+    }
+
+    /*
+     * Constructor with shipper name and date.
      *
      * @param (shipper, date)
      */
-    public OrderDto(String shipper, Date date) {
+    /*public OrderDto(String shipper, Date date) {
         this.shipper = shipper;
         this.date = date;
-    }
+    }*/
 
     /**
      * Returns <code>Integer</code> representation of this orderId.
@@ -99,24 +108,26 @@ public class OrderDto {
         this.totalPrice = totalPrice;
     }
 
-    /**
+
+    /*
      * Returns <code>Date</code> representation of Date
      * for the Order.
      *
      * @return date Date
      */
-    public Date getDate() {
+    /*public Date getDate() {
         return date;
     }
-
-    /**
+    */
+    /*
      * Sets the order's date.
      *
      * @param date Date.
      */
-    public void setDate(final Date date) {
+    /*public void setDate(final Date date) {
         this.date = date;
     }
+    */
 
     /**
      * {@inheritDoc}
@@ -127,7 +138,7 @@ public class OrderDto {
                 "orderId=" + orderId +
                 ", shipper='" + shipper + '\'' +
                 ", totalPrice=" + totalPrice +
-                ", date=" + date +
+                //", date=" + date +
                 '}';
     }
 }
