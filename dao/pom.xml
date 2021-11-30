@@ -50,6 +50,11 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
         <!-- Test junit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.11" class="java.beans.XMLDecoder">
+ <object class="com.epam.brest.dao.RandomObject" id="RandomObject0"/>
+ <object class="com.epam.brest.dao.RandomObject" id="RandomObject1"/>
+<void class="com.epam.brest.dao.RandomObject" id="Field0" method="getField">
+ <string>data</string>
+ <void id="doubleArray0" method="get">
+  <object idref="RandomObject0"/>
+  <void index="1">
+   <double>0.39899539956260943</double>
+  </void>
+  <void index="2">
+   <double>0.06038854102697888</double>
+  </void>
+  <void index="3">
+   <double>0.2823293953784516</double>
+  </void>
+  <void index="4">
+   <double>0.4479911513089331</double>
+  </void>
+  <void index="5">
+   <double>0.8249970167112208</double>
+  </void>
+  <void index="6">
+   <double>0.6755804927075264</double>
+  </void>
+  <void index="7">
+   <double>0.622623739010971</double>
+  </void>
+  <void index="8">
+   <double>0.1799951637772651</double>
+  </void>
+  <void index="9">
+   <double>0.08935426525376378</double>
+  </void>
+  <void index="0">
+   <double>0.9450776956616742</double>
+  </void>
+ </void>
+</void>
+<void idref="doubleArray0"/>
+<void class="com.epam.brest.dao.RandomObject" id="Field1" method="getField">
+ <string>data</string>
+ <void id="doubleArray1" method="get">
+  <object idref="RandomObject1"/>
+  <void index="1">
+   <double>0.6573815312403045</double>
+  </void>
+  <void index="2">
+   <double>0.20288414826647116</double>
+  </void>
+  <void index="3">
+   <double>0.01050903433646666</double>
+  </void>
+  <void index="4">
+   <double>0.848882323216376</double>
+  </void>
+  <void index="5">
+   <double>0.4677095935346187</double>
+  </void>
+  <void index="6">
+   <double>0.08810475167934317</double>
+  </void>
+  <void index="7">
+   <double>0.6278698455625793</double>
+  </void>
+  <void index="8">
+   <double>0.15629650335998357</double>
+  </void>
+  <void index="9">
+   <double>0.24621361972793276</double>
+  </void>
+  <void index="0">
+   <double>0.2587212499627325</double>
+  </void>
+ </void>
+</void>
+<void idref="doubleArray1"/>
+</java>
