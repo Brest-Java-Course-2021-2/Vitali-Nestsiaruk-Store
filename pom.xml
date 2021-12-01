@@ -15,6 +15,7 @@
         <module>dao</module>
         <module>service-api</module>
         <module>service</module>
+        <module>rest</module>
         <module>web-app</module>
         <module>test-db</module>
     </modules>
@@ -417,13 +418,13 @@
                                         <exclude>*Test</exclude>
                                         <exclude>*IT</exclude>
                                     </excludes>
-                                    <!--                                    <limits>-->
-                                    <!--                                        <limit>-->
-                                    <!--                                            <counter>LINE</counter>-->
-                                    <!--                                            <value>COVEREDRATIO</value>-->
-                                    <!--                                            <minimum>70%</minimum>-->
-                                    <!--                                        </limit>-->
-                                    <!--                                    </limits>-->
+<!--                                    <limits>-->
+<!--                                        <limit>-->
+<!--                                            <counter>LINE</counter>-->
+<!--                                            <value>COVEREDRATIO</value>-->
+<!--                                            <minimum>70%</minimum>-->
+<!--                                        </limit>-->
+<!--                                    </limits>-->
                                 </rule>
                             </rules>
                             <dataFile>${project.build.directory}/jacoco-output/merged.exec</dataFile>
