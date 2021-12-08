@@ -93,7 +93,7 @@ public class OrderDto {
      * Returns <code>BigDecimal</code> representation of total price
      * for the Order.
      *
-     * @return totalPrice Total price
+     * @return totalPrice.
      */
     public BigDecimal getTotalPrice() {
         return totalPrice;

@@ -33,12 +33,21 @@
         <constructor-arg name="orderDtoDao" ref="orderDtoDao"/>
     </bean>
 
-    <bean id="orderDao" class="com.epam.brest.dao.OrderDaoJdbcImpl">
+    <bean id="orderDao" class="com.epam.brest.dao.OrderDaoJDBCImpl">
         <constructor-arg ref="namedParameterJdbcTemplate"/>
     </bean>
 
     <bean id="orderService" class="com.epam.brest.service.impl.OrderServiceImpl">
         <constructor-arg name="orderDao" ref="orderDao"/>
+    </bean>
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:test-db.properties</value>
+                <value>classpath*:sql-order.properties</value>
+            </list>
+        </property>
     </bean>
 
     <!-- Thymeleaf Template Resolver (version Spring5)-->

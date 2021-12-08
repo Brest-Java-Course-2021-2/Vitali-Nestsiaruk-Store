@@ -28,11 +28,11 @@
         <constructor-arg ref="namedParameterJdbcTemplate"/>
     </bean>
 
-    <bean id="orderDtoService" class="com.epam.brest.service.impl.OrderDtoServiceImplIt">
+    <bean id="orderDtoService" class="com.epam.brest.service.impl.OrderDtoServiceImpl">
         <constructor-arg name="orderDtoDao" ref="orderDtoDao"/>
     </bean>
 
-    <bean id="orderDao" class="com.epam.brest.dao.OrderDaoJdbcImpl">
+    <bean id="orderDao" class="com.epam.brest.dao.OrderDaoJDBCImpl">
         <constructor-arg ref="namedParameterJdbcTemplate"/>
     </bean>
 

@@ -3,7 +3,6 @@ package com.epam.brest.web_app;
 import com.epam.brest.model.Order;
 import com.epam.brest.service.OrderDtoService;
 import com.epam.brest.service.OrderService;
-import com.epam.brest.service.impl.OrderServiceImpl;
 import com.epam.brest.web_app.validators.OrderValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,7 +77,7 @@ public class OrderController {
      */
     @PostMapping(value = "/order")
     public String addOrder(Order order, BindingResult result) {
-        logger.debug("addOrder({},{})", order);
+        logger.debug("addOrder({}, {})", order);
 
         orderValidator.validate(order, result);
 
@@ -119,7 +118,7 @@ public class OrderController {
     @GetMapping(value = "/order/{id}/delete")
     public final String deleteOrderById(@PathVariable Integer id, Model model) {
 
-        logger.debug("delete({},{})", id, model);
+        logger.debug("delete({}, {})", id, model);
         orderService.delete(id);
         return "redirect:/orders";
     }

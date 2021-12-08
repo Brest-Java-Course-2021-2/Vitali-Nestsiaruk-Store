@@ -32,7 +32,7 @@ public class OrderDaoJDBCImpl implements OrderDao{
     @Value("${SQL_ALL_ORDERS}")
     private String sqlGetAllOrders;
 
-    @Value("${SQL_CREATE_ORDERS}")
+    @Value("${SQL_CREATE_ORDER}")
     private String sqlCreateOrder;
 
     @Value("${SQL_ORDER_BY_ID}")
@@ -65,8 +65,8 @@ public class OrderDaoJDBCImpl implements OrderDao{
     @Override
     public Integer create(Order order) {
         logger.debug("Create order: {}", order);
-         SqlParameterSource sqlParameterSource = new MapSqlParameterSource();
-        ((MapSqlParameterSource) sqlParameterSource).addValue("shipper", order.getShipper());
+         SqlParameterSource sqlParameterSource = new MapSqlParameterSource("shipper", order.getShipper());
+        //((MapSqlParameterSource) sqlParameterSource).addValue("shipper", order.getShipper());
         //((MapSqlParameterSource) sqlParameterSource).addValue("date", order.getDate());
         return namedParameterJdbcTemplate.update(sqlCreateOrder, sqlParameterSource);
     }

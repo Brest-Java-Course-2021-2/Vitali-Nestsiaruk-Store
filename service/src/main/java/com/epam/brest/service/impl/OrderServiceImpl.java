@@ -8,6 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -20,6 +22,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Order> findAll() {
+        logger.trace("findAll()");
+        return orderDao.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Order getOrderById(Integer orderId) {
         logger.debug("Get order by id = {}", orderId);
         return this.orderDao.getOrderById(orderId);
@@ -33,12 +43,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public Integer update(Order order) {
         logger.debug("update({})", order);
         return this.orderDao.update(order);
     }
 
     @Override
+    @Transactional
     public Integer delete(Integer orderId) {
         logger.debug("delete order with id = {}", orderId);
         return this.orderDao.delete(orderId);
