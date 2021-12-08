@@ -46,7 +46,7 @@
         </jacoco.it.execution.data.file>
         <jacoco.ut.execution.data.file>${project.build.directory}/coverage-reports/jacoco-ut.exec
         </jacoco.ut.execution.data.file>
-        <jackson-databind.version>2.11.4</jackson-databind.version>
+        <jackson-databind.version>2.13.0</jackson-databind.version>
     </properties>
 
     <dependencyManagement>
@@ -60,13 +60,13 @@
 
             <dependency>
                 <groupId>com.epam.brest</groupId>
-                <artifactId>dao</artifactId>
+                <artifactId>dao-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.epam.brest</groupId>
-                <artifactId>dao-api</artifactId>
+                <artifactId>dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -91,6 +91,12 @@
             <dependency>
                 <groupId>com.epam.brest</groupId>
                 <artifactId>test-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.epam.brest</groupId>
+                <artifactId>rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -159,6 +165,11 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson-databind.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>2.4.0</version>
             </dependency>
 
             <!-- H2 database-->

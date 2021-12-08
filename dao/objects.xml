@@ -5,36 +5,36 @@
 <void class="com.epam.brest.dao.RandomObject" id="Field0" method="getField">
  <string>data</string>
  <void id="doubleArray0" method="get">
-  <object idref="RandomObject0"/>
+  <object idref="RandomObject1"/>
   <void index="1">
-   <double>0.49053771579982464</double>
+   <double>0.37165243790476965</double>
   </void>
   <void index="2">
-   <double>0.06743213678833127</double>
+   <double>0.7000231506436029</double>
   </void>
   <void index="3">
-   <double>0.608733106584813</double>
+   <double>0.23677989223620244</double>
   </void>
   <void index="4">
-   <double>0.9513131429035159</double>
+   <double>0.8106532685163425</double>
   </void>
   <void index="5">
-   <double>0.16135353522071882</double>
+   <double>0.158395207328056</double>
   </void>
   <void index="6">
-   <double>0.0066723662165011355</double>
+   <double>0.6888610298540129</double>
   </void>
   <void index="7">
-   <double>0.4404533987827268</double>
+   <double>0.6327539608351764</double>
   </void>
   <void index="8">
-   <double>0.3236522102428122</double>
+   <double>0.41422384191232675</double>
   </void>
   <void index="9">
-   <double>0.7446256550153743</double>
+   <double>0.28427153310760334</double>
   </void>
   <void index="0">
-   <double>0.14754107520084037</double>
+   <double>0.40475644448782666</double>
   </void>
  </void>
 </void>
@@ -42,36 +42,36 @@
 <void class="com.epam.brest.dao.RandomObject" id="Field1" method="getField">
  <string>data</string>
  <void id="doubleArray1" method="get">
-  <object idref="RandomObject1"/>
+  <object idref="RandomObject0"/>
   <void index="1">
-   <double>0.038336342789426436</double>
+   <double>0.6173339649078884</double>
   </void>
   <void index="2">
-   <double>0.6988116473045206</double>
+   <double>0.25645409723172263</double>
   </void>
   <void index="3">
-   <double>0.8116309809359845</double>
+   <double>0.1914537262038104</double>
   </void>
   <void index="4">
-   <double>0.6791330234103686</double>
+   <double>0.6315420849148567</double>
   </void>
   <void index="5">
-   <double>0.1035890999135115</double>
+   <double>0.6892074297013985</double>
   </void>
   <void index="6">
-   <double>0.16637765904438828</double>
+   <double>0.029764312701799356</double>
   </void>
   <void index="7">
-   <double>0.815641719399712</double>
+   <double>0.5403431645404967</double>
   </void>
   <void index="8">
-   <double>0.690095942935654</double>
+   <double>0.2523626335322091</double>
   </void>
   <void index="9">
-   <double>0.015044328611770519</double>
+   <double>0.6363922936465302</double>
   </void>
   <void index="0">
-   <double>0.5991189365327904</double>
+   <double>0.42213919546329437</double>
   </void>
  </void>
 </void>

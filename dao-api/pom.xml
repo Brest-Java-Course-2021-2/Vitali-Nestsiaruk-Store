@@ -18,7 +18,6 @@
     </properties>
 
     <dependencies>
-        <!-- Dependencyes of model-->
         <dependency>
             <groupId>com.epam.brest</groupId>
             <artifactId>model</artifactId>

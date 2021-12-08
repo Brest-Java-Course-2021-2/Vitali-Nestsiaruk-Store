@@ -81,24 +81,24 @@
                         <table class="table table-striped">
                             <thead class="table-dark">
                                 <tr>
-                                    <th class="caption-order">Order №</th>
+<!--                                    <th class="caption-order">Order №</th>-->
                                     <th>Shipper</th>
                                     <th>Total price</th>
-                                    <th>Date</th>
+<!--                                    <th>Date</th>-->
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="order : ${orders}">
-                                    <td th:text="${order.orderId}">1
+<!--                                    <td th:text="${order.orderId}">1-->
 <!--                                        <a href="orderproduct.html" th:href="@{/orderproduct} title="product">-->
 <!--                                            <span class="d-none d-md-inline">012021</span>-->
 <!--                                        </a>-->
-                                    </td>
+<!--                                    </td>-->
                                     <td th:text="${order.shipper}">Savushkin Product</td>
                                     <td th:text="${order.totalPrice}">25000</td>
                                     <!--<td th:text="${order.date}">25000</td> -->
-                                    <td>03.25.2021</td>
+<!--                                    <td>03.25.2021</td>-->
                                     <td class="text-end">
                                         <a href="order.html" th:href="@{|/order/${order.orderId}}" class="btn-sm btn-outline-secondary" title="Edit order">
                                             <i class="bi-pen"></i><span class="d-none d-md-inline">Edit</span></a>
@@ -111,14 +111,14 @@
                                     </td>
                                 </tr>
                                 <tr th:remove="all">
-                                    <td th:text="${order.orderId}">2
+<!--                                    <td th:text="${order.orderId}">2-->
 <!--                                        <a href="orderproduct.html" th:href="@{/orderproduct} title="product">-->
 <!--                                        <span class="d-none d-md-inline">022021</span>-->
 <!--                                        </a>-->
-                                    </td>
+<!--                                    </td>-->
                                     <td>Santa</td>
                                     <td>18000</td>
-                                    <td>03.18.2021</td>
+<!--                                    <td>03.18.2021</td>-->
                                     <td class="text-end">
                                         <a href="order.html" th:href="@{/order/2}"
                                            class="btn-sm btn-outline-secondary" title="Edit order">
@@ -131,14 +131,14 @@
                                     </td>
                                 </tr>
                                 <tr th:remove="all">
-                                    <td th:text="${order.orderId}">3
+<!--                                    <td th:text="${order.orderId}">3-->
 <!--                                        <a href="orderproduct.html" th:href="@{/orderproduct} title="product">-->
 <!--                                        <span class="d-none d-md-inline">032021</span>-->
 <!--                                        </a>-->
-                                    </td>
+<!--                                    </td>-->
                                     <td>Perfect</td>
                                     <td>7500</td>
-                                    <td>03.22.2021</td>
+<!--                                    <td>03.22.2021</td>-->
                                     <td class="text-end">
                                         <a href="order.html" th:href="@{/order/3}"
                                            class="btn-sm btn-outline-secondary" title="Edit order">
@@ -151,14 +151,14 @@
                                     </td>
                                 </tr>
                                 <tr th:remove="all">
-                                    <td th:text="${order.orderId}">4
+<!--                                    <td th:text="${order.orderId}">4-->
 <!--                                        <a href="orderproduct.html" th:href="@{/orderproduct} title="product">-->
 <!--                                        <span class="d-none d-md-inline">042021</span>-->
 <!--                                        </a>-->
-                                    </td>
+<!--                                    </td>-->
                                     <td>Brest meat-packing plant</td>
                                     <td>13500</td>
-                                    <td>04.02.2021</td>
+<!--                                    <td>04.02.2021</td>-->
                                     <td class="text-end">
                                         <a href="order.html" th:href="@{/order/4}"
                                            class="btn-sm btn-outline-secondary"
@@ -172,14 +172,14 @@
                                     </td>
                                 </tr>
                                 <tr th:remove="all">
-                                    <td th:text="${order.orderId}">5
+<!--                                    <td th:text="${order.orderId}">5-->
 <!--                                        <a href="orderproduct.html" th:href="@{/orderproduct} title="product">-->
 <!--                                        <span class="d-none d-md-inline">052021</span>-->
 <!--                                        </a>-->
-                                    </td>
+<!--                                    </td>-->
                                     <td>Komunarka</td>
                                     <td>6500</td>
-                                    <td>04.05.2021</td>
+<!--                                    <td>04.05.2021</td>-->
                                     <td class="text-end">
                                         <a href="order.html" th:href="@{/order/5}"
                                            class="btn-sm btn-outline-secondary"
@@ -193,14 +193,14 @@
                                     </td>
                                 </tr>
                                 <tr th:remove="all">
-                                    <td th:text="${order.orderId}">6
+<!--                                    <td th:text="${order.orderId}">6-->
 <!--                                        <a href="orderproduct.html" th:href="@{/orderproduct} title="product">-->
 <!--                                        <span class="d-none d-md-inline">062021</span>-->
 <!--                                        </a>-->
-                                    </td>
+<!--                                    </td>-->
                                     <td>Timosha</td>
                                     <td>4800</td>
-                                    <td>04.06.2021</td>
+<!--                                    <td>04.06.2021</td>-->
                                     <td class="text-end">
                                         <a href="order.html" th:href="@{/order/6}"
                                            class="btn-sm btn-outline-secondary"

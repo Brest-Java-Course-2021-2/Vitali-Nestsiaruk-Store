@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Order {
 
-
     private Integer orderId;
 
     private String shipper;
@@ -28,7 +27,6 @@ public class Order {
     public Order(Integer orderId, String shipper) {
         this.orderId = orderId;
         this.shipper = shipper;
-
     }
 
 
